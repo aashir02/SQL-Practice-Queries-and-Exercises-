@@ -1,0 +1,38 @@
+1.total sal paid to all emp
+ select sum(sal) from emp;
+
+2.avg sal of emp
+select avg(sal) from emp;
+
+3.highest sal
+select max(sal) from emp;
+
+4.lowest sal of emp
+select min(sal) from emp;
+
+5.total number of emp
+select count(*) from emp;
+
+6.total commission 
+select sum(comm) from emp;
+
+7.how many emp work in each dep
+select deptno,count(*) from emp group by deptno;
+
+8.avg sal of each dept
+select deptno,avg(sal) from emp group by deptno; 
+
+9.max sal for each job role
+select job,max(sal) from emp group by job;
+
+10.how many emp there for each job title
+select job,count(*) from emp group by job;
+
+11.total sal of salesman  employees
+select job,sum(sal) from emp group by job having job='SALESMAN';
+
+12.show dept where the avg sal is more than 2500
+select deptno,avg(sal) from emp group by deptno having avg(sal) > 2500;
+
+13.find the earliest and latest hire date from each dept
+select deptno,max(hiredate) ,min(hiredate) from emp group by deptno;
