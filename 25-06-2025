@@ -1,0 +1,26 @@
+1.list dept where the average sal is greater than 2500
+ select deptno from emp group by deptno having avg(sal)>2500;
+
+2.show job ttiles having more than 2 employess
+select job from emp group by job having count(job)>2;
+
+3.find dept where total sal exceeds 5000
+select deptno from emp group by deptno having sum(sal)>5000;
+
+4.show dept where the max sal is above 3000
+SELECT deptno FROM emp GROUP BY deptno HAVING MAX(sal) > 3000;
+
+5.list job titles where the average commission is more than 500
+select job from emp group by job having avg(comm)>500;
+
+6,find dept with less than 3 emp
+select deptno from emp group by deptno having count(deptno)<3;
+
+7.display job roles where the total comm is not zero
+select job from emp group by job having sum(comm)!=0;
+
+8.show dept numbers where at least one employee earns over 4000
+SELECT deptno FROM emp GROUP BY deptno HAVING MAX(sal) > 4000;
+
+9.find jobs having total sal between 3000 and 7000
+select job from emp group by job having sum(sal) between 3001 and 6999;
