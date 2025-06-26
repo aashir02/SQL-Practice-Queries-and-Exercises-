@@ -1,0 +1,30 @@
+//////26-06-2025////////////////ORDER BY CLAUSE/////////////////////
+1.list all emp in ascending order of sal
+select * from emp order by sal;
+
+2.display emp details ordered by hire date(oldest to newest)
+select * from emp order by hiredate;
+
+3.show emp sorted by deptno and then by salary
+select * from emp order by deptno,sal;
+
+4.lis emp in descending order of commission
+select * from emp order by comm desc;
+
+5.display all employees alphabetically by their name
+select * from emp order by ename;
+
+6.show emp ordered by job title and descending sal
+select * from emp order by job,sal desc;
+
+7.list all employees order by dept and name
+select * from emp order by deptno,ename;
+
+8.display employees with highest salry first
+ select * from emp order by sal desc;
+
+9.show a list of employees sorted by manager number
+select * from emp order by mgr;
+
+10.list dept ordered by department name in reverse alphabatics
+select * from dept order by dname desc;
