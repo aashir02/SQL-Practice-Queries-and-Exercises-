@@ -1,0 +1,64 @@
+-- 1. Employees with salary > SMITH and < SCOTT
+SELECT * FROM emp 
+WHERE sal > (SELECT sal FROM emp WHERE ename='SMITH')
+AND sal < (SELECT sal FROM emp WHERE ename='SCOTT');
+
+-- 2. Department number of ALLEN
+SELECT deptno FROM emp WHERE ename='ALLEN';
+
+-- 3. Department name of ALLEN
+SELECT dname FROM dept 
+WHERE deptno IN (SELECT deptno FROM emp WHERE ename='ALLEN');
+
+-- 4. Details of employees working in 'SALES'
+SELECT * FROM emp 
+WHERE deptno IN (SELECT deptno FROM dept WHERE dname='SALES');
+
+-- 5. Department name of TURNER
+SELECT dname FROM dept 
+WHERE deptno IN (SELECT deptno FROM emp WHERE ename='TURNER');
+
+-- 6. Names of employees working in departments located in 'DALLAS'
+SELECT ename FROM emp 
+WHERE deptno IN (SELECT deptno FROM dept WHERE loc='DALLAS');
+
+-- 7. Employees who work in 'SALES' department
+SELECT * FROM emp 
+WHERE deptno IN (SELECT deptno FROM dept WHERE dname='SALES');
+
+-- 8. Employees whose department is located in 'CHICAGO'
+SELECT * FROM emp 
+WHERE deptno IN (SELECT deptno FROM dept WHERE loc='CHICAGO');
+
+-- 9. Employees belonging to departments whose names start with 'A'
+SELECT * FROM emp 
+WHERE deptno IN (SELECT deptno FROM dept WHERE dname LIKE 'A%');
+
+-- 10. Employees working in departments not located in 'NEW YORK'
+SELECT * FROM emp 
+WHERE deptno IN (SELECT deptno FROM dept WHERE loc!='NEW YORK');
+
+-- 11. Employees working in the same department as 'RESEARCH'
+SELECT * FROM emp 
+WHERE deptno IN (SELECT deptno FROM dept WHERE dname='RESEARCH');
+
+-- 12. Employees working in departments located in cities ending with 'S'
+SELECT * FROM emp 
+WHERE deptno IN (SELECT deptno FROM dept WHERE loc LIKE '%S');
+
+-- 13. Employees working in departments whose name contains 'T'
+SELECT * FROM emp 
+WHERE deptno IN (SELECT deptno FROM dept WHERE dname LIKE '%T%');
+
+-- 14. Employees whose department is located in 'BOSTON'
+SELECT * FROM emp 
+WHERE deptno IN (SELECT deptno FROM dept WHERE loc='BOSTON');
+
+-- 15. Employees working in departments located in the same city as 'ACCOUNTING'
+SELECT * FROM emp 
+WHERE deptno IN (
+  SELECT deptno FROM dept 
+  WHERE loc IN (
+    SELECT loc FROM dept WHERE dname='ACCOUNTING'
+  )
+);
