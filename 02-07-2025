@@ -1,0 +1,58 @@
+-- 1. Details of dname where ename is 'ALLEN' or 'SCOTT'
+SELECT dname FROM dept 
+WHERE deptno IN (SELECT deptno FROM emp WHERE ename IN ('SCOTT','ALLEN'));
+
+-- 2. Details of employees working in 'CHICAGO'
+SELECT * FROM emp 
+WHERE deptno IN (SELECT deptno FROM dept WHERE loc = 'CHICAGO');
+
+-- 3. Details of employees working in 'CHICAGO' or 'NEW YORK'
+SELECT * FROM emp 
+WHERE deptno IN (SELECT deptno FROM dept WHERE loc IN ('CHICAGO','NEW YORK'));
+
+-- 4. Details of employees earning salary more than any employee working in deptno 20
+SELECT * FROM emp 
+WHERE sal > ALL (SELECT sal FROM emp WHERE deptno = 20);
+
+-- 5. Names of employees earning maximum salary
+SELECT ename FROM emp 
+WHERE sal = (SELECT MAX(sal) FROM emp);
+
+-- 6. Names of employees earning minimum salary
+SELECT ename FROM emp 
+WHERE sal = (SELECT MIN(sal) FROM emp);
+
+-- 7. Names of employees earning maximum commission
+SELECT ename FROM emp 
+WHERE comm = (SELECT MAX(comm) FROM emp);
+
+-- 8. Names of employees earning minimum commission
+SELECT ename FROM emp 
+WHERE comm = (SELECT MIN(comm) FROM emp);
+
+-- 9. Salary value of employee earning second highest salary
+SELECT MAX(sal) FROM emp 
+WHERE sal < (SELECT MAX(sal) FROM emp);
+
+-- 10. Salary value of employee earning third highest salary
+SELECT MAX(sal) FROM emp 
+WHERE sal < (SELECT MAX(sal) FROM emp 
+             WHERE sal < (SELECT MAX(sal) FROM emp));
+
+-- 11. Names of employees earning fifth highest salary
+SELECT ename FROM emp 
+WHERE sal = (SELECT MAX(sal) FROM emp 
+             WHERE sal < (SELECT MAX(sal) FROM emp 
+                          WHERE sal < (SELECT MAX(sal) FROM emp 
+                                       WHERE sal < (SELECT MAX(sal) FROM emp 
+                                                    WHERE sal < (SELECT MAX(sal) FROM emp)))));
+
+-- 12. Names and salaries of employees earning seventh minimum salary
+SELECT ename, sal FROM emp 
+WHERE sal = (SELECT MIN(sal) FROM emp 
+             WHERE sal > (SELECT MIN(sal) FROM emp 
+                          WHERE sal > (SELECT MIN(sal) FROM emp 
+                                       WHERE sal > (SELECT MIN(sal) FROM emp 
+                                                    WHERE sal > (SELECT MIN(sal) FROM emp 
+                                                                 WHERE sal > (SELECT MIN(sal) FROM emp 
+                                                                              WHERE sal > (SELECT MIN(sal) FROM emp)))))));
