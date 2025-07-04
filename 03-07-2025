@@ -1,0 +1,60 @@
+1. Salary of SMITH
+SELECT sal FROM emp WHERE ename = 'SMITH';
+
+2. Smith's deptno (via subquery)
+SELECT deptno FROM emp WHERE empno = (SELECT empno FROM emp WHERE ename = 'SMITH');
+
+3. Names of employees earning more than ALLEN
+SELECT ename FROM emp 
+WHERE sal > (SELECT sal FROM emp WHERE ename = 'ALLEN');
+
+4. DNAME of SCOTT
+SELECT dname FROM dept 
+WHERE deptno = (SELECT deptno FROM emp WHERE ename = 'SCOTT');
+
+5. Manager name of SCOTT
+SELECT ename FROM emp 
+WHERE empno = (SELECT mgr FROM emp WHERE ename = 'SCOTT');
+
+6. WARD's manager name
+SELECT ename FROM emp 
+WHERE empno = (SELECT mgr FROM emp WHERE ename = 'WARD');
+
+7. FORD's manager name
+SELECT ename FROM emp 
+WHERE empno = (SELECT mgr FROM emp WHERE ename = 'FORD');
+
+///////case 1 : to identify manager
+
+8. ALLEN's manager's manager name
+SELECT ename FROM emp 
+WHERE empno = (SELECT mgr FROM emp 
+               WHERE empno = (SELECT mgr FROM emp WHERE ename = 'ALLEN'));
+
+9. SMITH's manager's manager name
+SELECT ename FROM emp 
+WHERE empno = (SELECT mgr FROM emp 
+               WHERE empno = (SELECT mgr FROM emp WHERE ename = 'SMITH'));
+
+10. KING's manager name (if exists)
+SELECT ename FROM emp 
+WHERE empno = (SELECT mgr FROM emp WHERE ename = 'KING');
+
+///////case 2 : to identify employees
+
+11. Names of employees reporting to KING
+SELECT ename FROM emp 
+WHERE mgr = (SELECT empno FROM emp WHERE ename = 'KING');
+
+12. Details of employees reporting to TURNER
+SELECT * FROM emp 
+WHERE mgr = (SELECT empno FROM emp WHERE ename = 'TURNER');
+
+13. Name and salary of employees reporting to WARD
+SELECT ename, sal FROM emp 
+WHERE mgr = (SELECT empno FROM emp WHERE ename = 'WARD');
+
+14. Details of employees reporting to SCOTT
+SELECT * FROM emp 
+WHERE mgr = (SELECT empno FROM emp WHERE ename = 'SCOTT');
+
