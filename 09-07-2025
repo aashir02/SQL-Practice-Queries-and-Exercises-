@@ -11,3 +11,10 @@
 9.select substr('maharashtra',5,5) from dual;
 10.select substr('maharashtra',8) from dual;
 11.select substr('maharashtra',-9,4) from dual;
+
+//instring
+1.select instr('maharashtra','a',1) from dual;
+2.select instr('maharashtra','a',5) from dual;
+3.select instr('pythonjava','java',1) from dual;
+4.select instr('pythonjavapythonjava','java',1,2) from dual;
+5.select instr('javapythonjavapython','python',5,2) from dual;
