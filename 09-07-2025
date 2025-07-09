@@ -21,3 +21,16 @@
 
 6.select ename from emp where instr(ename,'A',1,1)>0;
 7.select ename from emp where instr(ename,'A',1,2)>0;
+
+8.select last_day('21-july-2025') from dual;
+9.select last_day('1-july-1987') from dual;
+
+10.select ename  from emp where to_char(HIREDATE,'mon') in ('feb');
+11.select ename from emp where to_char(hiredate,'day') in ('wednesday','friday');
+12.select ename from emp where to_char(hiredate,'dd')>0;
+13.select ename from emp where to_char(hiredate,'dd')>12;
+14.select ename,to_char(hiredate,'yyyy') from emp;
+15.select ename,to_char(hiredate,'hh:mm:ss') from emp;
+16.select ename,to_char(hiredate,'day') from emp;
+17. select ename,to_char(hiredate,'day') from emp where to_char(hiredate,'dy') in ('mon','tue');
+
