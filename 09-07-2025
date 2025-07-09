@@ -18,3 +18,6 @@
 3.select instr('pythonjava','java',1) from dual;
 4.select instr('pythonjavapythonjava','java',1,2) from dual;
 5.select instr('javapythonjavapython','python',5,2) from dual;
+
+6.select ename from emp where instr(ename,'A',1,1)>0;
+7.select ename from emp where instr(ename,'A',1,2)>0;
