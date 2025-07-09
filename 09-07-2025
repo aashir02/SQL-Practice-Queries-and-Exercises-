@@ -1,0 +1,13 @@
+//////////////////////////////////////09-07-2025///////////////////////////////////////////////////////
+//substring
+1.select substr('helloworld',5,3) from dual;
+2.select substr('helloworld',6) from dual;
+3.select substr('helloworld',1,5) from dual;
+4.select substr('helloworld',2,5) from dual;
+5.select substr('maharashtra',3,4) from dual;
+6.select substr('maharashtra',5,4) from dual;
+7.select substr('maharashtra',9) from dual;
+8.select substr('maharashtra',1,4) from dual;
+9.select substr('maharashtra',5,5) from dual;
+10.select substr('maharashtra',8) from dual;
+11.select substr('maharashtra',-9,4) from dual;
